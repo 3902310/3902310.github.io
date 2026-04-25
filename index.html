@@ -1,103 +1,425 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>百道青叶 | Panda Tea - Premium Chinese Tea</title>
-    <meta name="description" content="BaiDao QingYe Panda Tea, High quality Chinese green tea, export wholesale, organic panda tea">
+    <title>百道青叶 Panda & Leaf | 中国高端有机茶出海</title>
     <style>
-        *{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft Yahei",sans-serif;}
-        body{color:#333;line-height:1.6;background:#f8f9f5;}
-        /* 导航栏 */
-        header{background:#2c4a38;position:sticky;top:0;z-index:99;}
-        .nav{width:90%;max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:15px 0;}
-        .logo{color:#fff;font-size:24px;font-weight:bold;}
-        .logo span{font-size:14px;opacity:0.8;margin-left:8px;}
-        .nav-menu a{color:#fff;text-decoration:none;margin-left:30px;transition:0.3s;}
-        .nav-menu a:hover{color:#b9d8b9;}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Noto Serif SC", "Georgia", serif;
+        }
 
-        /* 横幅 */
-        .banner{height:500px;background:linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),
-        url('https://img.icons8.com/fluency/96/000000/panda.png') no-repeat center center / cover;
-        display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;}
-        .banner h1{font-size:48px;margin-bottom:20px;}
-        .banner p{font-size:18px;margin-bottom:30px;letter-spacing:2px;}
-        .btn{padding:12px 30px;background:#50805c;color:#fff;text-decoration:none;border-radius:30px;transition:0.3s;}
-        .btn:hover{background:#3a6447;}
+        :root {
+            --primary-dark: #1A2F23;
+            --text-main: #222;
+            --text-light: #555;
+            --accent: #7A9D8B;
+            --bg-light: #F8F6F0;
+            --white: #FFFFFF;
+            --line-color: #e5e2db;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.75;
+        }
+
+        /* 导航栏 高级磨砂质感 */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--line-color);
+            z-index: 999;
+        }
+        .nav-wrap {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 25px;
+        }
+        .logo {
+            font-size: 22px;
+            letter-spacing: 3px;
+            color: var(--primary-dark);
+            font-weight: 500;
+        }
+        .nav-menu a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin: 0 14px;
+            font-size: 14px;
+            transition: 0.3s ease;
+        }
+        .nav-menu a:hover {
+            color: var(--primary-dark);
+        }
+
+        /* 首屏Hero */
+        .hero {
+            width: 100%;
+            height: 78vh;
+            background: linear-gradient(rgba(26, 47, 35, 0.25), rgba(26, 47, 35, 0.25)), var(--bg-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+        .hero-text h1 {
+            font-size: 50px;
+            font-weight: 500;
+            margin-bottom: 15px;
+            letter-spacing: 4px;
+            color: var(--primary-dark);
+        }
+        .hero-text p {
+            font-size: 16px;
+            color: var(--text-light);
+            margin-bottom: 35px;
+        }
+        .btn-primary {
+            padding: 13px 40px;
+            background: var(--primary-dark);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: var(--accent);
+        }
 
         /* 通用容器 */
-        .container{width:90%;max-width:1200px;margin:80px auto;}
-        .title{text-align:center;font-size:32px;color:#2c4a38;margin-bottom:50px;}
-        .title::after{content:"";display:block;width:80px;height:3px;background:#50805c;margin:15px auto;}
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 70px 25px;
+        }
+        .section-head {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-head h2 {
+            font-size: 28px;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+        }
+        .section-head .sub {
+            color: var(--text-light);
+            font-size: 14px;
+        }
 
-        /* 品牌介绍 */
-        .about{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;}
-        .about-text h3{font-size:26px;margin-bottom:20px;color:#2c4a38;}
-        .about-text p{margin-bottom:15px;color:#555;}
+        /* 主产品大图区 */
+        .hero-product {
+            background: var(--white);
+            padding: 60px 25px;
+        }
+        .hero-product-wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .hero-product-img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+        .hero-product-info h3 {
+            font-size: 26px;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+        }
+        .hero-product-info .price {
+            font-size: 20px;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        .hero-product-info p {
+            font-size: 14.5px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        .btn-learn {
+            padding: 11px 30px;
+            border: 1px solid var(--primary-dark);
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-size: 13px;
+            transition: 0.3s ease;
+        }
+        .btn-learn:hover {
+            background: var(--primary-dark);
+            color: var(--white);
+        }
 
-        /* 产品列表 */
-        .product-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;}
-        .product-item{background:#fff;padding:20px;border-radius:10px;box-shadow:0 2px 10px #eee;text-align:center;}
-        .product-item h4{font-size:20px;margin:15px 0;color:#2c4a38;}
-        .product-item p{color:#666;font-size:14px;}
+        /* 茶品分类网格 */
+        .tea-categories {
+            background: var(--bg-light);
+        }
+        .tea-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 35px;
+        }
+        .tea-item {
+            text-align: center;
+            transition: 0.3s ease;
+        }
+        .tea-item:hover {
+            transform: translateY(-6px);
+        }
+        .tea-img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        }
+        .tea-name-cn {
+            font-size: 15px;
+            color: var(--primary-dark);
+            margin-bottom: 3px;
+        }
+        .tea-name-en {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 6px;
+        }
+        .tea-price {
+            font-size: 14px;
+            color: var(--accent);
+        }
+
+        /* 品牌关于 */
+        .about {
+            background: var(--white);
+        }
+        .about-text {
+            max-width: 850px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .about-text p {
+            margin-bottom: 12px;
+            font-size: 14.5px;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+        .about-text .cn {
+            color: var(--text-main);
+        }
 
         /* 联系我们 */
-        .contact{background:#eef3ee;padding:60px;border-radius:10px;text-align:center;}
-        .contact p{margin:10px 0;font-size:16px;}
+        .contact {
+            background: var(--bg-light);
+        }
+        .contact-info {
+            text-align: center;
+            font-size: 15px;
+        }
+        .contact-info p {
+            margin: 12px 0;
+            color: var(--primary-dark);
+        }
 
         /* 页脚 */
-        footer{background:#2c4a38;color:#fff;text-align:center;padding:30px 0;margin-top:50px;}
+        footer {
+            background: var(--primary-dark);
+            color: rgba(255,255,255,0.8);
+            padding: 50px 25px 30px;
+            font-size: 13px;
+        }
+        .footer-grid {
+            max-width: 1280px;
+            margin: 0 auto 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+        .footer-col h4 {
+            margin-bottom: 15px;
+            color: #fff;
+            font-size: 15px;
+        }
+        .footer-col a {
+            display: block;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            margin: 8px 0;
+        }
+        .footer-col a:hover {
+            color: #fff;
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            .hero-text h1 { font-size: 34px; }
+            .hero-product-wrap { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
-    <!-- 导航 -->
-    <header>
-        <div class="nav">
-            <div class="logo">
-                百道青叶 <span>BaiDao QingYe</span>
+
+<!-- 导航 -->
+<header>
+    <div class="nav-wrap">
+        <div class="logo">百道青叶 · Panda & Leaf</div>
+        <div class="nav-menu">
+            <a href="#home">首页 / Home</a>
+            <a href="#product">产品 / Product</a>
+            <a href="#about">品牌 / About</a>
+            <a href="#contact">联系 / Contact</a>
+        </div>
+    </div>
+</header>
+
+<!-- 首屏Banner -->
+<section class="hero" id="home">
+    <div class="hero-text">
+        <h1>以茶为礼 · 香飘世界</h1>
+        <p>Premium Organic Chinese Tea | 四川高原生态茶 · 国风茶礼出海</p>
+        <a href="#product" class="btn-primary">浏览茶品 / Explore</a>
+    </div>
+</section>
+
+<!-- 主产品大图展示区 -->
+<section class="hero-product" id="product">
+    <div class="hero-product-wrap">
+        <div>
+            <img class="hero-product-img" src="" alt="百道青叶品鉴礼盒">
+        </div>
+        <div class="hero-product-info">
+            <h3>百道青叶 · 品鉴礼盒</h3>
+            <div class="price">¥169 / $24.99</div>
+            <p>Panda & Leaf Curating Tea Sampler<br>
+            四川阿坝水磨高山茶园，有机生态原叶茶，原创熊猫国风包装，适配海外送礼与外贸定制。</p>
+            <a href="#contact" class="btn-learn">联系订购 / Order Now</a>
+        </div>
+    </div>
+</section>
+
+<!-- 茶品分类 -->
+<section class="tea-categories">
+    <div class="container">
+        <div class="section-head">
+            <h2>精选茶品 / Our Teas</h2>
+            <p class="sub">源自四川阿坝高山茶园 · 有机种植 · 国风原创包装</p>
+        </div>
+        <div class="tea-grid">
+            <div class="tea-item">
+                <img class="tea-img" src="" alt="高原绿茶">
+                <div class="tea-name-cn">高原云雾绿茶</div>
+                <div class="tea-name-en">Highland Green Tea</div>
+                <div class="tea-price">¥89 / $12.99</div>
             </div>
-            <div class="nav-menu">
-                <a href="#home">Home</a>
-                <a href="#about">Brand</a>
-                <a href="#product">Products</a>
-                <a href="#contact">Contact</a>
+            <div class="tea-item">
+                <img class="tea-img" src="" alt="有机藏茶">
+                <div class="tea-name-cn">原生态藏茶</div>
+                <div class="tea-name-en">Organic Tibetan Tea</div>
+                <div class="tea-price">¥109 / $15.99</div>
+            </div>
+            <div class="tea-item">
+                <img class="tea-img" src="" alt="茉莉清茶">
+                <div class="tea-name-cn">古法茉莉绿茶</div>
+                <div class="tea-name-en">Jasmine Green Tea</div>
+                <div class="tea-price">¥75 / $10.99</div>
+            </div>
+            <div class="tea-item">
+                <img class="tea-img" src="" alt="川式红茶">
+                <div class="tea-name-cn">川韵高山红茶</div>
+                <div class="tea-name-en">Sichuan Black Tea</div>
+                <div class="tea-price">¥95 / $13.99</div>
             </div>
         </div>
-    </header>
+    </div>
+</section>
 
-    <!-- 首页横幅 -->
-    <section class="banner" id="home">
-        <div class="banner-text">
-            <h1>百道青叶 · 熊猫茶</h1>
-            <p>Panda Tea | Premium Chinese Export Tea</p>
-            <a href="#product" class="btn">View Products</a>
+<!-- 品牌故事 精简优化版 中英双语 -->
+<section class="about" id="about">
+    <div class="container">
+        <div class="section-head">
+            <h2>品牌故事 / About Us</h2>
         </div>
-    </section>
+        <div class="about-text">
+            <p>Tea was born in China, the origin of global tea culture.</p>
+            <p class="cn">茶，始于中国。这里是世界茶香的本源，古以茶通丝路，让东方雅致韵味传遍四海。</p>
 
-    <!-- 品牌介绍 -->
-    <section class="container" id="about">
-        <h2 class="title">About Us</h2>
-        <div class="about">
-            <div class="about-text">
-                <h3>BaiDao QingYe Brand</h3>
-                <p>百道青叶，专注高端中国茶叶出口，主打特色<strong>熊猫茶</strong>系列。</p>
-                <p>源自中国核心茶产区，自然生态种植，严格质检，符合欧美、东南亚等多国出口标准。</p>
-                <p>我们提供大宗批发、定制贴牌、外贸OEM服务，适合海外商超、代理商、线下门店合作。</p>
-                <p>With natural planting, pure tea flavor, healthy and organic, trusted by global buyers.</p>
-            </div>
-            <div class="about-img">
-                <img src="https://img.icons8.com/color/200/tea.png" alt="Chinese Tea" width="100%">
-            </div>
+            <p>Although China owns profound tea heritage, we still lack an iconic global tea brand.</p>
+            <p class="cn">坐拥千年茶脉与优质茶源，当下却少有能代表中国、走向世界的茶名片。</p>
+
+            <p>Therefore, Panda & Leaf rises with the mission of Chinese tea globalization.</p>
+            <p class="cn">为此，百道青叶应运而生，深耕山野茶源，打磨东方好茶，让世界看见中国茶的实力。</p>
+
+            <p>We start from Shuimo, Aba —— the hometown of giant pandas.</p>
+            <p class="cn">我们的初心，自四川阿坝水磨启程。山水滋养优质茶芽，承载我们纯粹的制茶本心。</p>
+
+            <p>From Shuimo to the world, we keep exploring and inheriting tea culture.</p>
+            <p class="cn">以水磨为起点，踏遍华夏茶山，以匠心守本味，让中国茶香跨越山海，惊艳全球。</p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- 产品展示 -->
-    <section class="container" id="product">
-        <h2 class="title">Our Products</h2>
-        <div class="product-list">
-            <div class="product-item">
-                <h4>熊猫绿茶 Panda Green Tea</h4>
-                <p>清香鲜爽 · 出口级散装/礼盒装</p>
-            </div>
-            <div class="product-item">
-                <h4>熊猫毛尖 Panda Maoj
+<!-- 商务合作 -->
+<section class="contact" id="contact">
+    <div class="container">
+        <div class="section-head">
+            <h2>商务合作 / Contact</h2>
+        </div>
+        <div class="contact-info">
+            <p>📞 联系电话 / Phone：19302856658</p>
+            <p>📩 联系邮箱 / Email：3388094059@qq.com</p>
+            <p>🌿 产地地址 / Origin：中国·四川阿坝水磨茶区</p>
+            <p>🤝 业务范围：外贸出口 | 批量批发 | 礼盒定制 | 海外渠道合作</p>
+        </div>
+    </div>
+</section>
+
+<!-- 页脚 -->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>产品中心 / Shop</h4>
+            <a href="#product">品鉴礼盒</a>
+            <a href="#product">绿茶系列</a>
+            <a href="#product">红茶 & 藏茶</a>
+            <a href="#contact">定制服务</a>
+        </div>
+        <div class="footer-col">
+            <h4>品牌信息 / Info</h4>
+            <a href="#about">品牌故事</a>
+            <a href="#contact">外贸合作</a>
+            <a href="#contact">批量报价</a>
+        </div>
+        <div class="footer-col">
+            <h4>关注我们 / Follow</h4>
+            <a href="#">TikTok 海外账号</a>
+            <a href="#">跨境官方社群</a>
+            <a href="#">团队动态</a>
+        </div>
+    </div>
+    <div class="copyright">
+        © 2025 百道青叶 Panda & Leaf ｜ 中国茶出海项目 版权所有
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,85 +1,103 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terttu的茶与自然笔记</title>
+    <title>百道青叶 | Panda Tea - Premium Chinese Tea</title>
+    <meta name="description" content="BaiDao QingYe Panda Tea, High quality Chinese green tea, export wholesale, organic panda tea">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: "微软雅黑", sans-serif;
-            background: #f8faf6;
-            color: #333;
-            line-height: 1.6;
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        header {
-            text-align: center;
-            padding: 30px 0;
-            border-bottom: 1px solid #d0e8d8;
-            margin-bottom: 30px;
-        }
-        h1 {
-            font-size: 26px;
-            color: #2d5f45;
-            margin-bottom: 8px;
-        }
-        .intro {
-            font-size: 15px;
-            color: #5a7a68;
-        }
-        .post {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-        }
-        .post h2 {
-            font-size: 20px;
-            color: #2d5f45;
-            margin-bottom: 10px;
-        }
-        .post .date {
-            font-size: 13px;
-            color: #888;
-            margin-bottom: 12px;
-        }
-        footer {
-            text-align: center;
-            padding: 20px 0;
-            color: #888;
-            font-size: 13px;
-            margin-top: 40px;
-        }
+        *{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft Yahei",sans-serif;}
+        body{color:#333;line-height:1.6;background:#f8f9f5;}
+        /* 导航栏 */
+        header{background:#2c4a38;position:sticky;top:0;z-index:99;}
+        .nav{width:90%;max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:15px 0;}
+        .logo{color:#fff;font-size:24px;font-weight:bold;}
+        .logo span{font-size:14px;opacity:0.8;margin-left:8px;}
+        .nav-menu a{color:#fff;text-decoration:none;margin-left:30px;transition:0.3s;}
+        .nav-menu a:hover{color:#b9d8b9;}
+
+        /* 横幅 */
+        .banner{height:500px;background:linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),
+        url('https://img.icons8.com/fluency/96/000000/panda.png') no-repeat center center / cover;
+        display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;}
+        .banner h1{font-size:48px;margin-bottom:20px;}
+        .banner p{font-size:18px;margin-bottom:30px;letter-spacing:2px;}
+        .btn{padding:12px 30px;background:#50805c;color:#fff;text-decoration:none;border-radius:30px;transition:0.3s;}
+        .btn:hover{background:#3a6447;}
+
+        /* 通用容器 */
+        .container{width:90%;max-width:1200px;margin:80px auto;}
+        .title{text-align:center;font-size:32px;color:#2c4a38;margin-bottom:50px;}
+        .title::after{content:"";display:block;width:80px;height:3px;background:#50805c;margin:15px auto;}
+
+        /* 品牌介绍 */
+        .about{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;}
+        .about-text h3{font-size:26px;margin-bottom:20px;color:#2c4a38;}
+        .about-text p{margin-bottom:15px;color:#555;}
+
+        /* 产品列表 */
+        .product-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;}
+        .product-item{background:#fff;padding:20px;border-radius:10px;box-shadow:0 2px 10px #eee;text-align:center;}
+        .product-item h4{font-size:20px;margin:15px 0;color:#2c4a38;}
+        .product-item p{color:#666;font-size:14px;}
+
+        /* 联系我们 */
+        .contact{background:#eef3ee;padding:60px;border-radius:10px;text-align:center;}
+        .contact p{margin:10px 0;font-size:16px;}
+
+        /* 页脚 */
+        footer{background:#2c4a38;color:#fff;text-align:center;padding:30px 0;margin-top:50px;}
     </style>
 </head>
 <body>
+    <!-- 导航 -->
     <header>
-        <h1>Terttu / 特图</h1>
-        <p class="intro">在读大学生 | 茶艺师 | 自然爱好者<br>热爱生活，更热爱大自然</p>
+        <div class="nav">
+            <div class="logo">
+                百道青叶 <span>BaiDao QingYe</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#home">Home</a>
+                <a href="#about">Brand</a>
+                <a href="#product">Products</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
     </header>
 
-    <div class="post">
-        <h2>春日里的一杯明前茶</h2>
-        <div class="date">2025年3月22日</div>
-        <p>今天泡了一杯明前龙井，嫩绿的芽尖在水中舒展，像极了春天的模样。茶里藏着四季的温度，也藏着我对生活的耐心。</p>
-    </div>
+    <!-- 首页横幅 -->
+    <section class="banner" id="home">
+        <div class="banner-text">
+            <h1>百道青叶 · 熊猫茶</h1>
+            <p>Panda Tea | Premium Chinese Export Tea</p>
+            <a href="#product" class="btn">View Products</a>
+        </div>
+    </section>
 
-    <div class="post">
-        <h2>宿舍阳台的小森林</h2>
-        <div class="date">2025年3月20日</div>
-        <p>在阳台种了薄荷和绿萝，每天浇水看它们生长，是我缓解学业压力的小秘诀。大自然从不焦虑，慢慢生长就很好。</p>
-    </div>
+    <!-- 品牌介绍 -->
+    <section class="container" id="about">
+        <h2 class="title">About Us</h2>
+        <div class="about">
+            <div class="about-text">
+                <h3>BaiDao QingYe Brand</h3>
+                <p>百道青叶，专注高端中国茶叶出口，主打特色<strong>熊猫茶</strong>系列。</p>
+                <p>源自中国核心茶产区，自然生态种植，严格质检，符合欧美、东南亚等多国出口标准。</p>
+                <p>我们提供大宗批发、定制贴牌、外贸OEM服务，适合海外商超、代理商、线下门店合作。</p>
+                <p>With natural planting, pure tea flavor, healthy and organic, trusted by global buyers.</p>
+            </div>
+            <div class="about-img">
+                <img src="https://img.icons8.com/color/200/tea.png" alt="Chinese Tea" width="100%">
+            </div>
+        </div>
+    </section>
 
-    <footer>
-        <p>© 2025 Terttu的茶与自然笔记</p>
-    </footer>
-</body>
-</html>
+    <!-- 产品展示 -->
+    <section class="container" id="product">
+        <h2 class="title">Our Products</h2>
+        <div class="product-list">
+            <div class="product-item">
+                <h4>熊猫绿茶 Panda Green Tea</h4>
+                <p>清香鲜爽 · 出口级散装/礼盒装</p>
+            </div>
+            <div class="product-item">
+                <h4>熊猫毛尖 Panda Maoj
